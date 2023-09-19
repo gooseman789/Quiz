@@ -1,10 +1,18 @@
 * {
-    background-color: rgb(195, 195, 243);
+    background-color: rgb(193, 244, 248);
 }
 
 div {
     text-align: center;
+    display: none;
 }
+
+#show {
+    display: block;
+    margin-top: 250px;
+
+};
+
 
 header {
     display: flex;
@@ -27,6 +35,6 @@ input {
 }
 
 input:hover, button:hover {
-    background-color: darkgray;
+    background-color: rgb(114, 114, 114);
     color: white;
 }
