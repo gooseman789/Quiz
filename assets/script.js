@@ -34,27 +34,33 @@ function countdown() {
     var timeLeft = 60;
     var timeInterval = setInterval(function() {
         timeLeft--;
-        timeInterval.textContent = "Time left: " + timeLeft + " seconds"
-        if (timeLeft === 0) {
+        timerEL.textContent = "Time left: " + timeLeft + " seconds"
+        if (timeLeft <= 0) {
             clearInterval(timeInterval);
         }
     }, 1000);
+    console.log("test")
 }
 
-function nextplus(event) {
-    event.preventDefault();
+function nextplus() {
 }
 
-function nextstay(event) {
-    event.preventDefault();
+function nextstay() {
     currentEL = document.querySelector("#show");
-   // currentEL.removeAttribute('id');
+    console.log("test1")
+    cardsEL.forEach((el, i) => {
+        if (el == currentEL) {
+            //cardsEL[i++].setAttribute('id', 'show');
+            console.log("test2")
+        };
+    });
+    //currentEL.removeAttribute('id');
 }
 
-function startgame(event) {
-    event.preventDefault();
+function startgame() {
     countdown();
     nextstay();
+    console.log("test");
 }
 
 startEL.addEventListener("click", startgame)
