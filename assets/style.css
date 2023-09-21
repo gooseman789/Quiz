@@ -13,17 +13,33 @@ div {
 
 };
 
+#score {
+    display: flex;
+    
+}
 
 header {
     display: flex;
-    justify-content: space-between;
     margin: 0% 2%;
+    flex-direction: row;
+    justify-content: space-between;
 }
+
+.top {
+    position: relative;
+    display: flex;
+}
+
+#highscore {
+    display: inline-block;
+}
+
 form {
     display: block;
     margin: auto;
     width: 30%;
 }
+
 input {
     display: inline-block;
     width: 100%;
