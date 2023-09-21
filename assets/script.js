@@ -7,16 +7,15 @@ var HighScoreBut = document.querySelector('#highscore');
 var scoreEL = document.querySelector('#score');
 var restartBut = document.querySelector('#restart');
 var resetBut  = document.querySelector('#reset');
+var timeInterval  ;
 
-
-
+var scoreNum = 0;
 scoreEL.textContent = "Your score was " + scoreNum;
 
-var scoreNum = "0";
 
 function countdown() {
     var timeLeft = 60;
-    var timeInterval = setInterval(function() {
+    timeInterval = setInterval(function() {
         timeLeft--;
         timerEL.textContent = "Time left: " + timeLeft + " seconds"
         if (timeLeft <= 0) {
@@ -70,11 +69,20 @@ el.addEventListener('click', function() {
 
 //move to next card, add one to score
 correctEL.forEach((el,i) => {
-    el.addEventListener('click', nextplus())});
+    el.addEventListener('click', function() {
+        currentEL = document.querySelector("#show");
+        console.log("test1");
+        for (let i=0; i < cardsEL.length; i++) {
+            if (cardsEL[i] === currentEL) {
+                cardsEL[i+1].setAttribute('id', 'show');
+                currentEL.removeAttribute('id');
+                break
+            }}})});
 
 
 //High score button to move to final card
 HighScoreBut.addEventListener('click', function() {
+    clearInterval(timeInterval)
     currentEL = document.querySelector("#show");
     cardsEL[cardsEL.length-1].setAttribute('id','show');
     currentEL.removeAttribute('id');
