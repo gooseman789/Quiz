@@ -43,7 +43,7 @@ function countdown() {
         }
     }
     }, 1000);
-    console.log("test")
+    console.log("testtime")
 }
 
 
@@ -61,7 +61,7 @@ function nextstay() {
             console.log("test2")
         };
     });
-    //currentEL.removeAttribute('id');
+    currentEL.removeAttribute('id');
 }
 
 function startgame() {
