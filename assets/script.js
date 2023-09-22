@@ -8,27 +8,31 @@ var scoreEL = document.querySelector('#score');
 var restartBut = document.querySelector('#restart');
 var resetBut  = document.querySelector('#reset');
 var timeInterval  ;
-
+var timeLeft = 60;
 var scoreNum = 0;
-scoreEL.textContent = "Your score was " + scoreNum;
+var nameInput = document.querySelector('#nameform');
+var saveBut = document.querySelector('#save');
+var listEL = document.querySelector('#list');
 
 
 function countdown() {
-    var timeLeft = 60;
     timeInterval = setInterval(function() {
         timeLeft--;
         timerEL.textContent = "Time left: " + timeLeft + " seconds"
         if (timeLeft <= 0) {
             clearInterval(timeInterval);
             currentEL = document.querySelector("#show");
+            if (currentEL === cardsEL[cardsEL.length-1]) {
+                
+            }
+            else {
             cardsEL[cardsEL.length-1].setAttribute('id','show');
             currentEL.removeAttribute('id');
+            }
         }
     }, 1000);
 }
 
-function nextplus() {
-}
 
 function nextstay() {
     currentEL = document.querySelector("#show");
@@ -64,8 +68,14 @@ el.addEventListener('click', function() {
             break
         }
     }
-    
+    timeLeft -= 5;
+    scoreEL.textContent = "Your score was " + scoreNum;
 })});
+
+function scoreadd () {
+    scoreNum++;
+    console.log(scoreNum);
+}
 
 //move to next card, add one to score
 correctEL.forEach((el,i) => {
@@ -77,7 +87,11 @@ correctEL.forEach((el,i) => {
                 cardsEL[i+1].setAttribute('id', 'show');
                 currentEL.removeAttribute('id');
                 break
-            }}})});
+            }}
+        scoreadd()
+        scoreEL.textContent = "Your score was " + scoreNum;
+        })});
+
 
 
 //High score button to move to final card
@@ -86,11 +100,27 @@ HighScoreBut.addEventListener('click', function() {
     currentEL = document.querySelector("#show");
     cardsEL[cardsEL.length-1].setAttribute('id','show');
     currentEL.removeAttribute('id');
+    scoreEL.textContent = "Your score was " + scoreNum;
 })
 
 //puts you back at the first question
 restartBut.addEventListener('click', function() {
     cardsEL[cardsEL.length-1].removeAttribute('id');
     cardsEL[1].setAttribute('id', 'show');
+    timeLeft = 60;
     countdown();
+})
+
+saveBut.addEventListener('click', function () {
+    var inputName = nameInput.value + " " + scoreNum;
+    localStorage.setItem("Score", inputName);
+    var listLine = document.createElement('li');
+    listLine.textContent = localStorage.getItem("Score");
+    listEL.appendChild(listLine);
+})
+
+resetBut.addEventListener('click', function() {
+    localStorage.clear();
+    listEL.innerHTML = ' ';
+
 })

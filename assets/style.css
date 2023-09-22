@@ -32,6 +32,10 @@ header {
 
 #highscore {
     display: inline-block;
+    font-size: 200%;
+    background-color: black;
+    color: aliceblue;
+    margin: 2%;
 }
 
 form {
@@ -53,4 +57,41 @@ input {
 input:hover, button:hover {
     background-color: rgb(114, 114, 114);
     color: white;
+}
+
+#nameform {
+    width: 200px;
+}
+
+#nameform:hover, #nameform:focus {
+    background-color: antiquewhite;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    left: -1%;
+}
+li {
+    display: inline;
+    font-size: 150%;
+    background-color:rgb(255, 102, 102);
+    width: fit-content;
+    list-style-type: none;
+    left: -1%;
+    padding: .5%;
+    margin: .5%;
+
+}
+#center-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#timer {
+    font-size: 200%;
+    font-weight: bold;
+
 }
