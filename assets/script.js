@@ -108,6 +108,7 @@ restartBut.addEventListener('click', function() {
     cardsEL[cardsEL.length-1].removeAttribute('id');
     cardsEL[1].setAttribute('id', 'show');
     timeLeft = 60;
+    scoreNum = 0;
     countdown();
 })
 
