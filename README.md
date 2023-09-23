@@ -26,6 +26,5 @@ I did this completely on my own work with some help with TAs and friends.  As we
 
 I used the MIT license.  
 
----
-
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
+## Deployed Link
+https://gooseman789.github.io/Quiz/ 
